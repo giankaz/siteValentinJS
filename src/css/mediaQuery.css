@@ -1,7 +1,16 @@
 
 @media screen and (max-width: 768px) {
+    .site {
+        overflow-x: hidden;
+        position: relative;
+        width: 100%;
+    }
+
     html {
         font-size: 20px;
+    }
+    body {
+     
     }
     header>section>h1 {
         animation-name: none;
