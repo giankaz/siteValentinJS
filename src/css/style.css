@@ -27,7 +27,6 @@ html, body {
   }
 
 header {
-    margin-top: 2%;
     width: 100%;
 }
 
@@ -42,6 +41,7 @@ header>section {
 header>section>h1 {
   animation: text-pop-up-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;   
   font-size: 1.7rem;
+  margin-top: 3%;
   font-weight: bold;
   
 
@@ -122,7 +122,6 @@ header>section>h1 {
     }
 }
 header>section>h3 {
-    margin-top: 5px;
     font-size: 1.2rem;
 }
 
@@ -168,15 +167,13 @@ h2:hover, h3:hover {
   }
 
 main {
-   width: 70%;
-    margin: 2% 10%;
+    width: 70%;
+    margin: 0 10%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
 }
-main>section {
-   
-}
+
 main>section>figure {
     margin-top: 20px;
   
@@ -196,7 +193,7 @@ main>section>figure {
   }
   
 main>section>figure>img {
-    animation: roll-in-top 0.6s ease-out both;
+    /* animation: roll-in-top 0.6s ease-out both; */
     width: 400px;
     height: 400px;
     border-radius: 50%;
@@ -218,9 +215,9 @@ main>section>figure>img {
   
 }
 
-.rotate-out-center {
+/* .rotate-out-center {
 	  animation: rotate-out-center 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
-}
+} */
 
 
   @keyframes rotate-out-center {
@@ -237,9 +234,6 @@ main>section>figure>img {
   }
   
 
-.fade-out {
-    animation: fade-out 1s ease-out 4s both;
-}
 
 @keyframes fade-out {
     0% {
@@ -248,9 +242,6 @@ main>section>figure>img {
     100% {
       opacity: 0;
     }
-  }
-  .fade-in {
-    animation: puff-in-center 0.7s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
   }
 
   @keyframes puff-in-center {

@@ -9,8 +9,9 @@
     html {
         font-size: 20px;
     }
-    body {
-     
+
+    header>section {
+        gap: 0.5em;
     }
     header>section>h1 {
         animation-name: none;
@@ -30,6 +31,7 @@
     #legend {
         width: 100%;
         margin: 20px 0;
+        justify-content: center;
     }
     #legend>p {
         text-align: center;

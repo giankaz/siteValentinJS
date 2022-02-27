@@ -11,12 +11,12 @@ function imgSwapper () {
 
       const img = document.createElement('img')
       img.src = `./src/imgs/00${counter}.jfif`
+      img.style.animation = 'roll-in-top 0.6s ease-out both'
       imgStand.appendChild(img)
 
       legendDiv.innerHTML = ''
-
-      legendDiv.classList.remove('fade-out')
-      legendDiv.classList.add('fade-in')
+    
+      legendDiv.style.animation = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
       const p = document.createElement('p')
       let imgFinder = `img${counter}`
       p.innerText = dataBase[imgFinder]
@@ -26,11 +26,10 @@ function imgSwapper () {
     if (counter ===  Object.keys(dataBase).length + 1) {
         counter = 1
     }    
-    setInterval(() => {
-        legendDiv.classList.remove('fade-in')
-        legendDiv.classList.add('fade-out')
 
-        img.classList.add('rotate-out-center')
+    setTimeout(() => {
+        legendDiv.style.animation = 'fade-out 0.6s ease-out both'
+        img.style.animation = 'rotate-out-center 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both'
     }, 5000);
    
 }
