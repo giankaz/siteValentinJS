@@ -4,7 +4,7 @@ export let dataBase =
         img2 : `Tão pequenininho, mas já era tão amado \uD83E\uDD70`,
         img3 : `Um pacotinho de amor \uD83D\uDC93`,
         img4 : `Aqui eu já estava bem grandinho, tinha quase 7 meses. Estava forte e saudável, chutava o dia inteiro \uD83D\uDE20`,
-        img5 : `Eu e meu irmãozinho bat \uD83D\uDC31`,
+        img5 : `Eu e meu irmãozinho Bat \uD83D\uDC31`,
         img6 : `Meu irmãozinho Bat e eu \uD83D\uDE3B`
     }
 
