@@ -1,0 +1,28 @@
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 20px;
+    }
+    header>section>h1 {
+        animation-name: none;
+        font-size: 1.6rem;
+    }
+    main {
+        margin: 0 auto;
+        flex-flow: column nowrap;
+        align-items: center;
+        
+       
+    }
+    main>section>figure>img {
+        width: 200px;
+        height: 200px;
+    }
+    #legend {
+        width: 100%;
+        margin: 20px 0;
+    }
+    #legend>p {
+        text-align: center;
+    }
+}
