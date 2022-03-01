@@ -1,4 +1,5 @@
 import {dataBase} from './data/db.js'
+import {Visitors} from './models/visits.js'
 
 const imgStand = document.querySelector('#imgStand')
 const legendDiv = document.querySelector('#legend')
@@ -44,4 +45,26 @@ function loopFunction(delay, callback){
     loop()
 }
 
-loopFunction(6000, imgSwapper);
+loopFunction(6000, imgSwapper)
+
+
+
+
+const aside = document.querySelector('aside')
+
+document.addEventListener('submit', (event) => {
+    event.preventDefault()
+    let visitantName = event.target.childNodes[3].value
+    let newVisitor = new Visitors(visitantName)
+    newVisitor.visitantToDb()
+
+
+    aside.innerHTML = ''
+    aside.style.animation = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
+    aside.innerText = `Obrigado pela visita ${newVisitor.visitant}!`
+ 
+    setTimeout(() => {
+        aside.style.animation = 'fade-out 0.6s ease-out both'
+        setTimeout(() =>   aside.innerHTML = '', 1000)
+    }, 3000)
+})
