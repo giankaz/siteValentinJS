@@ -57,7 +57,7 @@ document.addEventListener('submit', (event) => {
     let visitantName = event.target.childNodes[3].value
     let newVisitor = new Visitors(visitantName)
     newVisitor.visitantToDb()
-
+  
 
     aside.innerHTML = ''
     aside.style.animation = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
