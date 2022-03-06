@@ -8,11 +8,12 @@ const html = document.querySelector('html')
 const imgStand = document.querySelector('#imgStand')
 const legendDiv = document.querySelector('#legend')
 const button1 = document.createElement('button')
-button1.style.marginBottom = 10 + 'px'
+
 const button2 = document.createElement('button')
 const header = document.querySelector('.header')
 const h3 = document.querySelector('.showH3')
 const button3 = document.createElement('button')
+const button4 = document.createElement('button')
 button3.classList.add('homeBtn')
 let condition = false
 legendDiv.style.display = 'none'
@@ -21,7 +22,66 @@ button3.innerText = 'Retornar'
 let timer = ''
 export class Main {
     static counter = 1
- 
+    static randomPhoto ()  {
+        imgStand.innerHTML = ''
+        legendDiv.innerHTML = ''
+        let random = Math.floor(Math.random() * ((Object.keys(dataBase).length + 1) - 1) + 1)
+
+        const modal = document.createElement('div')
+        modal.style.position = 'fixed'
+        modal.style.width =  1000 + 'vw'
+        modal.style.height = 1000 + 'vh'
+        modal.style.backgroundColor = 'rgba(0,0,0,0.7)'
+        modal.style.zIndex =  2
+        imgStand.appendChild(modal)
+
+        let imgFinder = `img${random}`
+        const p = document.createElement('p')
+        p.innerText = dataBase[imgFinder]
+        p.style.position = 'fixed'
+        p.style.zIndex = 4
+        p.style.bottom = 30 + '%'
+      
+        p.style.textAlign = 'center'
+        imgStand.appendChild(p)
+        const p2 = document.createElement('p')
+        p2.innerText = 'Clique na foto para fechar'
+        p2.style.position = 'fixed'
+        p2.style.zIndex = 4
+        p2.style.bottom = 5 + '%'
+        p2.style.fontWeight = 'bold'
+        p2.style.textAlign = 'center'
+        imgStand.appendChild(p2)
+
+        const newImg = document.createElement('img')
+        newImg.src = `./src/imgs/00${random}.jfif`
+        newImg.style.width = 70 + '%'
+        newImg.style.maxWidth = 500 + 'px'
+        newImg.style.height = 50 + '%'
+        newImg.style.position = 'fixed'
+        newImg.style.top = 10 + '%'
+        newImg.style.zIndex = 3
+        newImg.style.animation = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
+        imgStand.appendChild(newImg)
+
+        newImg.addEventListener('click', () =>{
+            html.style.overflow = 'hidden'
+            site.style.overflow = 'hidden'
+            imgStand.style.flexFlow = 'column wrap'
+            condition = false
+            Main.loopFunction(1000, Main.imgSwapper, condition)
+            h3.innerText = 'Escolha como deseja ver minhas fotos:'
+            h3.style.animation = 'none'
+            imgStand.innerHTML = ''
+            legendDiv.innerHTML = ''
+            legendDiv.style.display = 'none'
+            Main.photoShow()
+            button3.style.display = 'none'
+            button3.style.animation = 'none'
+          
+        })
+    }
+
     static allPhotos () {
         imgStand.innerHTML = ''
         legendDiv.innerHTML = ''
@@ -70,6 +130,8 @@ export class Main {
                 newImg.style.position = 'fixed'
                 newImg.style.top = 10 + '%'
                 newImg.style.zIndex = 3
+                newImg.style.animation = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
+
                 imgStand.appendChild(newImg)
                
                 const p2 = document.createElement('p')
@@ -85,7 +147,6 @@ export class Main {
 
            
                     newImg.addEventListener('click', () =>{
-                        h3.innerText = 'Clique na foto para ampliar'
                         imgStand.removeChild(newImg)
                         imgStand.removeChild(p)
                         imgStand.removeChild(p2)
@@ -159,9 +220,16 @@ export class Main {
          button2.classList.add('showBtn')
          button2.style.animation = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
 
+         button4.innerText = 'Ver uma foto aleatória'
+         button4.classList.add('showBtn')
+         button4.style.animation = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
+
+     
+
      
         imgStand.appendChild(button1)
         imgStand.appendChild(button2)
+        imgStand.appendChild(button4)
 
          button1.addEventListener('click', () => {
           button3.style.display = 'block'
@@ -187,7 +255,14 @@ export class Main {
 
      })
     
+     button4.addEventListener('click', () => {
+        imgStand.innerHTML = ''
+        button3.style.display = 'block'
+        button3.style.animation = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
+        header.appendChild(button3)
 
+            Main.randomPhoto()
+     })
      }
 
      
