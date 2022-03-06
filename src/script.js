@@ -81,7 +81,7 @@ class Main {
          button2.classList.add('showBtn')
      
       imgStand.appendChild(button1)
-      imgStand.appendChild(button2)
+      //imgStand.appendChild(button2)
 
       button1.addEventListener('click', () => {
           button3.style.display = 'block'
