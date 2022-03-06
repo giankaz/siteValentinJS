@@ -17,6 +17,7 @@ html, body {
     height: 100%;
 }
 
+
   @keyframes color-change-2x {
     0% {
       background: #8bc1ca;
@@ -197,6 +198,7 @@ main>section>figure {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    max-width: 600px;
   
 }
 main>section>figure>img {
@@ -205,6 +207,10 @@ main>section>figure>img {
         border: 2px solid white;
     }
     
+.imgs:hover {
+        border: 2px solid red;
+        cursor: pointer;
+}
 
 @keyframes roll-in-top {
     0% {
@@ -252,7 +258,8 @@ main>aside>form {
 main>aside>form>input {
         border: none;
         height: 2em;
-        color: white;
+        color: black;
+        font-weight: bold;
 }
 #name {
         background-color: rgb(16, 139, 177);
@@ -261,7 +268,7 @@ main>aside>form>input {
 }
 
 #enviar {
-        border: 1px solid black;
+        border: 2px solid black;
         border-radius: 5px;
         width: 40%;
         background-color: rgb(12, 173, 173);
@@ -269,7 +276,7 @@ main>aside>form>input {
 #enviar:hover {
         border: 1px solid white;
         background-color: rgb(16, 214, 221);
-        color: black;
+        color: white;
         cursor: pointer;
 }
   @keyframes rotate-out-center {

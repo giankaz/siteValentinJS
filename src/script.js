@@ -1,6 +1,10 @@
 import {dataBase} from './data/db.js'
 import {Visitors} from './models/visits.js'
 
+
+const body =document.querySelector('body')
+const site = document.querySelector('.site')
+const html = document.querySelector('html')
 const imgStand = document.querySelector('#imgStand')
 const legendDiv = document.querySelector('#legend')
 const button1 = document.createElement('button')
@@ -15,15 +19,91 @@ legendDiv.style.display = 'none'
 button3.innerText = 'Retornar'
 
 let timer = ''
-class Main {
+export class Main {
     static counter = 1
  
+    static allPhotos () {
+        imgStand.innerHTML = ''
+        legendDiv.innerHTML = ''
+        html.style.overflow = 'visible'
+        site.style.overflow = 'visible'
+
+        h3.innerText = 'Clique para ampliar !'
+        h3.style.animation = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
+
+        imgStand.style.flexFlow = 'row wrap'
+
+        for (let i = 1; i <  Object.keys(dataBase).length + 1; i++) {
+            const img = document.createElement('img')
+            img.src = `./src/imgs/00${i}.jfif`
+            img.style.width = 100 + 'px'
+            img.style.height = 100 + 'px'
+            img.style.marginRight = 10 + 'px'
+            img.style.animation = 'roll-in-top 0.6s ease-out both'
+            img.classList.add('imgs')
+            img.addEventListener('click', () => {
+                const modal = document.createElement('div')
+                modal.style.position = 'fixed'
+                modal.style.width =  1000 + 'vw'
+                modal.style.height = 1000 + 'vh'
+                modal.style.backgroundColor = 'rgba(0,0,0,0.7)'
+                modal.style.zIndex =  2
+                imgStand.appendChild(modal)
+
+                
+                let imgFinder = `img${i}`
+                const p = document.createElement('p')
+                p.innerText = dataBase[imgFinder]
+                p.style.position = 'fixed'
+                p.style.zIndex = 4
+                p.style.bottom = 22 + '%'
+              
+                p.style.textAlign = 'center'
+                imgStand.appendChild(p)
+                
+                const newImg = document.createElement('img')
+                newImg.src = img.src
+                newImg.style.width = 70 + '%'
+                newImg.style.maxWidth = 500 + 'px'
+                newImg.style.height = 60 + '%'
+                newImg.style.position = 'fixed'
+                newImg.style.top = 10 + '%'
+                newImg.style.zIndex = 3
+                imgStand.appendChild(newImg)
+               
+                const p2 = document.createElement('p')
+                p2.innerText = 'Clique na foto para fechar'
+                p2.style.position = 'fixed'
+                p2.style.zIndex = 4
+                p2.style.bottom = 5 + '%'
+                p2.style.fontWeight = 'bold'
+                p2.style.textAlign = 'center'
+                imgStand.appendChild(p2)
+                
+
+
+           
+                    newImg.addEventListener('click', () =>{
+                        h3.innerText = 'Clique na foto para ampliar'
+                        imgStand.removeChild(newImg)
+                        imgStand.removeChild(p)
+                        imgStand.removeChild(p2)
+                        imgStand.removeChild(modal)
+                    })
+              
+
+
+            })
+            imgStand.appendChild(img)
+        }
+    }
+
     static imgSwapper (stopper) {
         if (stopper) {
            console.log('not ok')
            return 'what'
         } else {
-            h3.innerText = 'Minhas fotos em ordem crescente'
+            h3.style.animation = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
        imgStand.innerHTML = ''
  
        const img = document.createElement('img')
@@ -76,23 +156,39 @@ class Main {
         
          button1.innerText = 'Apresentação automática'
          button1.classList.add('showBtn')
+         button1.style.animation = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
         
          button2.innerText = 'Ver todas as fotos'
          button2.classList.add('showBtn')
+         button2.style.animation = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
+
      
       imgStand.appendChild(button1)
-      //imgStand.appendChild(button2)
+      imgStand.appendChild(button2)
 
       button1.addEventListener('click', () => {
           button3.style.display = 'block'
+          button3.style.animation = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
           header.appendChild(button3)
+          h3.innerText = 'Minhas fotos em ordem crescente!'
           
           if (condition === false) {
              condition = true
              Main.loopFunction(6000, Main.imgSwapper, condition)
 
           }
-     }) 
+     })
+     
+     button2.addEventListener('click', () => {
+        imgStand.innerHTML = ''
+        button3.style.display = 'block'
+        button3.style.animation = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
+        header.appendChild(button3)
+
+        Main.allPhotos()
+
+
+     })
     
 
      }
@@ -100,23 +196,30 @@ class Main {
      
  }
 
-const aside = document.querySelector('aside')
 Main.photoShow()
 
 button3.addEventListener ('click', () =>{
+    html.style.overflow = 'hidden'
+    site.style.overflow = 'hidden'
+    imgStand.style.flexFlow = 'column wrap'
     condition = false
     Main.loopFunction(1000, Main.imgSwapper, condition)
     h3.innerText = 'Escolha como deseja ver minhas fotos:'
+    h3.style.animation = 'none'
     imgStand.innerHTML = ''
     legendDiv.innerHTML = ''
     legendDiv.style.display = 'none'
     Main.photoShow()
     button3.style.display = 'none'
+    button3.style.animation = 'none'
   
 
  })
-//Main.loopFunction(6000, Main.imgSwapper)
 
+const aside = document.querySelector('aside')
+setTimeout(() => {
+    aside.style.display = 'none'
+}, 10000)
 document.addEventListener('submit', (event) => {
     event.preventDefault()
     let visitantName = event.target.childNodes[3].value
