@@ -56,7 +56,7 @@ export class Main {
                 p.innerText = dataBase[imgFinder]
                 p.style.position = 'fixed'
                 p.style.zIndex = 4
-                p.style.bottom = 22 + '%'
+                p.style.bottom = 34 + '%'
               
                 p.style.textAlign = 'center'
                 imgStand.appendChild(p)
