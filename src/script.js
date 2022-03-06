@@ -65,7 +65,7 @@ export class Main {
                 newImg.src = img.src
                 newImg.style.width = 70 + '%'
                 newImg.style.maxWidth = 500 + 'px'
-                newImg.style.height = 60 + '%'
+                newImg.style.height = 50 + '%'
                 newImg.style.position = 'fixed'
                 newImg.style.top = 10 + '%'
                 newImg.style.zIndex = 3
@@ -147,13 +147,9 @@ export class Main {
             loop()
             } 
         } 
-         
-  
-     
 
      static photoShow () {
 
-        
          button1.innerText = 'Apresentação automática'
          button1.classList.add('showBtn')
          button1.style.animation = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
@@ -163,10 +159,10 @@ export class Main {
          button2.style.animation = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
 
      
-      imgStand.appendChild(button1)
-      imgStand.appendChild(button2)
+        imgStand.appendChild(button1)
+        imgStand.appendChild(button2)
 
-      button1.addEventListener('click', () => {
+         button1.addEventListener('click', () => {
           button3.style.display = 'block'
           button3.style.animation = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
           header.appendChild(button3)
