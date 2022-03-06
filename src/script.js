@@ -39,6 +39,7 @@ export class Main {
             img.style.width = 100 + 'px'
             img.style.height = 100 + 'px'
             img.style.marginRight = 10 + 'px'
+            img.style.marginBottom = 10 + 'px'
             img.style.animation = 'roll-in-top 0.6s ease-out both'
             img.classList.add('imgs')
             img.addEventListener('click', () => {
