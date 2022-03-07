@@ -1,0 +1,44 @@
+.modal {
+    position           : fixed;
+    width              : 1000vw;
+    height             : 1000vh;
+    background-color   :rgba(0,0,0,0.7);
+    z-index            : 2;
+}
+
+.p1 {
+      position         : fixed;
+      z-index          : 4;
+      bottom           : 30%;
+      font-weight      : bold;
+      text-align       : center;
+      animation        : puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+      color            : black;
+      text-shadow      : 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+
+
+}       
+
+.p2 {
+      position         : fixed;
+      z-index          : 4;
+      bottom           : 5%;
+      font-weight      : bold;
+      text-align       : center;
+      animation        : puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+      color            : black;
+      text-shadow      : 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+
+
+}
+
+.newImg {
+      width            : 70%;
+      max-width        : 500px;
+      height           : 50%;
+      position         : fixed;
+      top              : 10%;
+      z-index          : 3;
+      animation        : puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+      border           : 5px solid white;
+}

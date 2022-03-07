@@ -13,9 +13,17 @@
         gap: 0.5em;
     }
     header>section>h1 {
-        animation-name: none;
+        animation: none;
         font-size: 1.6rem;
+        text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
     }
+    header>section>h3, header>section>h2 {
+        animation: none;
+        font-weight: bold;
+        color: white;
+        text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+    }
+
     main {
         margin: 0 auto;
         flex-flow: column nowrap;
