@@ -10,7 +10,7 @@ const imgStand          = document.querySelector('#imgStand')
 const legendDiv         = document.querySelector('#legend')
 
 const autoBtn           = document.createElement('button')
-const allBtn            = document.createElement('button')
+const allBtn            = document.createElement('a')
 const randomBtn         = document.createElement('button')
 const returnBtn         = document.createElement('button')
 
@@ -33,13 +33,13 @@ export class Main {
 
           let random = Math.floor(Math.random() * ((Object.keys(dataBase).length + 1) - 1) + 1)
 
-        const modal                 = document.createElement('div')
+        const modal          = document.createElement('div')
 
         modal.classList.add('modal')
 
             imgStand.appendChild(modal)
 
-          let imgFinder        = `img${random}`
+          let imgFinder      = `img${random}`
 
         const p              = document.createElement('p')
         p.innerText          = dataBase[imgFinder]
@@ -56,7 +56,12 @@ export class Main {
             imgStand.appendChild(p2)
 
         const newImg           = document.createElement('img')
-        newImg.src             = `./src/imgs/00${random}.jfif`
+
+        if (random < 10) {
+         newImg.src             = `./src/imgs/00${random}.jfif`
+        } else {
+         newImg.src             = `./src/imgs/0${random}.jfif`
+        }
 
         newImg.classList.add('newImg')
 
@@ -66,7 +71,7 @@ export class Main {
                     html.style.overflow       = 'hidden'
                     site.style.overflow       = 'hidden'
 
-                    imgStand.style.flexFlow = 'column wrap'
+                    imgStand.style.flexFlow   = 'column wrap'
 
                     condition                 = false
 
@@ -92,16 +97,20 @@ export class Main {
         legendDiv.innerHTML     = ''
 
         html.style.overflow     = 'visible'
-        site.style.overflow     = 'visible'
+      /*   site.style.overflow     = 'visible' */
 
-        h3.innerText            = 'Clique para ampliar !'
-        h3.style.animation      = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
+        //h3.innerText            = 'Clique para ampliar !'
+       // h3.style.animation      = 'puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both'
 
         imgStand.style.flexFlow = 'row wrap'
 
          for (let i = 1; i <  Object.keys(dataBase).length + 1; i++) {
             const img = document.createElement('img')
-            img.src                = `./src/imgs/00${i}.jfif`
+            if (i < 10) {
+                img.src                = `../imgs/00${i}.jfif`
+            } else {
+                img.src                = `../imgs/0${i}.jfif`
+            }
             img.style.width        = 100 + 'px'
             img.style.height       = 100 + 'px'
             img.style.marginRight  = 10 + 'px'
@@ -127,8 +136,8 @@ export class Main {
 
                     imgStand.appendChild(p)
                 
-                const newImg = document.createElement('img')
-                newImg.src             = img.src
+                const newImg        = document.createElement('img')
+                newImg.src          = img.src
                 
                 newImg.classList.add('newImg')
 
@@ -163,7 +172,13 @@ export class Main {
             imgStand.innerHTML        = ''
         
             const img                 = document.createElement('img')
-            img.src                   = `./src/imgs/00${Main.counter}.jfif`
+
+            if (Main.counter < 10) {
+                img.src                   = `./src/imgs/00${Main.counter}.jfif`
+            } else {
+                img.src                = `./src/imgs/0${Main.counter}.jfif`
+            }
+           
             img.style.animation       = 'roll-in-top 0.6s ease-out both'
 
                 imgStand.appendChild(img)
@@ -180,7 +195,7 @@ export class Main {
  
             Main.counter++
 
-            if (Main.counter ===  Object.keys(dataBase).length + 1) {
+            if (Main.counter  ===  Object.keys(dataBase).length + 1) {
                 Main.counter = 1
             }    
  
@@ -249,8 +264,10 @@ export class Main {
                 }
 
      })
+     allBtn.href = '../src/pages/allPhotos.html'
+   
      
-     allBtn.addEventListener('click', () => {
+  /*     allBtn.addEventListener('click', () => {
 
         imgStand.innerHTML        = ''
 
@@ -261,7 +278,7 @@ export class Main {
 
             Main.allPhotos()
 
-     })
+     }) */ 
     
      randomBtn.addEventListener('click', () => {
 

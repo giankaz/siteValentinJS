@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Hubballi&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
+
 html {
         font-size       : 40px;
         color           : white;
@@ -57,7 +58,9 @@ header>section>h2 {
         margin-bottom    : 10px;
         color            : white;
         text-shadow      : 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
-
+        font-family      : Arial, Helvetica, sans-serif ;
+        font-size        : 0.7em;
+        text-align       : center;
 
         
 }
@@ -175,7 +178,14 @@ main>aside>form>input {
         background-color : rgb(10, 182, 235);  
 }
 
+a {
+        text-decoration: none;
+        font-size: 0.5em;
+        display          : flex;
+        justify-content  :center;
+        align-items: center;
 
+}
 
 /* KEYFRAMES */
 
@@ -345,4 +355,36 @@ main>aside>form>input {
           text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc, 0 4px 0 #cccccc, 0 5px 0 #cccccc, 0 6px 0 #cccccc, 0 7px 0 #cccccc, 0 8px 0 #cccccc, 0 9px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
         }
       }
+      #allPhotosHeader {
+              display: flex;
+              justify-content: space-between;
+              background-color: rgb(8, 90, 184);
+      }
+      #allPhotosHeader>h2 {
+               padding: 5px;  
+               font-size: 1.1em;       
+      }
+
+      #allPhotosUl {
+              display: flex;
+              width: 35%;
+              justify-content  : space-around;
+
+      }
+
+  #homeLink {
+        
+          white-space: nowrap;
+          margin-right: 20px;
+          text-decoration: underline;
+          font-size: 1.1em;
+          color: white;
+          padding: 5px;
+          margin-top: 2px;
       
+        
+  }
+
+  #homeLink:visited {
+          text-decoration: none;
+  }

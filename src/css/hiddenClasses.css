@@ -33,12 +33,13 @@
 }
 
 .newImg {
-      width            : 70%;
+      width            : 80%;
       max-width        : 500px;
-      height           : 50%;
+      height: auto;
       position         : fixed;
       top              : 10%;
       z-index          : 3;
       animation        : puff-in-center 0.6s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
       border           : 5px solid white;
 }
+
