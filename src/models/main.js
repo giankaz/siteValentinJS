@@ -264,7 +264,7 @@ export class Main {
                 }
 
      })
-     allBtn.href = '../src/pages/allPhotos.html'
+     allBtn.href = './src/pages/allPhotos.html'
    
      
   /*     allBtn.addEventListener('click', () => {
